@@ -7,12 +7,21 @@ if __name__ == "__main__":
     if (lent - 1) != 3:
         print('Usage: ./100-my_calculator.py <a> <operator> <b>')
         sys.exit(1)
-    
-    ops = {"+": add, "-": sub, "*": mul, "/": div}
-    if sys.argv[2] not in list(ops.keys()):
-        print("Unknown operator. Available operators: +, -, * and /")
+        
+    operator = sys.argv[2]    
+    if (operator != '+') and (operator != '-') and (operator != '*') and (operator != '/'):
+        print('Unknown operator. Available operators: +, -, * and /')
         sys.exit(1)
 
-    a = int(sys.argv[1])
-    b = int(sys.argv[3])
-    print("{} {} {} = {}".format(a, sys.argv[2], b, ops[sys.argv[2]](a, b)))
+    a = sys.argv[1]
+    b = sys.argv[3]
+
+    if operator == '+':
+        print("{} + {} = {}".format(a, b, add(a, b)))
+    elif operator == '-':
+        print("{} - {} = {}".format(a, b, sub(a, b)))
+    elif operator == '*':
+        print("{} * {} = {}".format(a, b, mul(a, b)))
+    else:
+        print("{} / {} = {}".format(a, b, div(a, b)))
+    sys.exit(0)
