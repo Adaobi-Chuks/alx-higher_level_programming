@@ -4,7 +4,8 @@ def to_subtract(list_num):
     max_list = max(list_num)
 
     for n in list_num:
-        to_sub += n
+        if n <= max_list:
+            to_sub += n
 
     return (max_list - to_sub)
 
